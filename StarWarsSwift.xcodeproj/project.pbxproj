@@ -13,6 +13,7 @@
 		D37538501B07F8C700C2F629 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D375384F1B07F8C700C2F629 /* Images.xcassets */; };
 		D37538531B07F8C700C2F629 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37538511B07F8C700C2F629 /* LaunchScreen.xib */; };
 		D375385F1B07F8C700C2F629 /* StarWarsSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D375385E1B07F8C700C2F629 /* StarWarsSwiftTests.swift */; };
+		D37538691B07F8DE00C2F629 /* StarWarsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37538681B07F8DE00C2F629 /* StarWarsModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D37538581B07F8C700C2F629 /* StarWarsSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D375385D1B07F8C700C2F629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D375385E1B07F8C700C2F629 /* StarWarsSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsSwiftTests.swift; sourceTree = "<group>"; };
+		D37538681B07F8DE00C2F629 /* StarWarsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D375384F1B07F8C700C2F629 /* Images.xcassets */,
 				D37538511B07F8C700C2F629 /* LaunchScreen.xib */,
 				D37538461B07F8C700C2F629 /* Supporting Files */,
+				D37538681B07F8DE00C2F629 /* StarWarsModels.swift */,
 			);
 			path = StarWarsSwift;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37538691B07F8DE00C2F629 /* StarWarsModels.swift in Sources */,
 				D375384B1B07F8C700C2F629 /* ViewController.swift in Sources */,
 				D37538491B07F8C700C2F629 /* AppDelegate.swift in Sources */,
 			);
