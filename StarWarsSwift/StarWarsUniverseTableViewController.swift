@@ -96,13 +96,11 @@ class StarWarsUniverseTableViewController: UITableViewController,UITableViewDele
         nc.postNotification(n)
         
         
-//        // Guardamos las coordenadas del último personaje
-//        NSArray *coords = @[@(indexPath.section), @(indexPath.row)];
-//        NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-//        [def setObject:coords
-//        forKey:LAST_SELECTED_CHARACTER];
-//        [def synchronize];
-        
+        //Save cordinates of last character selected
+        var ns = NSUserDefaults.standardUserDefaults()
+        ns.setObject(indexPath.section, forKey: "section")
+        ns.setObject(indexPath.row, forKey: "row")
+        ns.synchronize()
     }
     
     func starWarsViewController(_swvc: StarWarsUniverseTableViewController,

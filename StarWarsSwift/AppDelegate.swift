@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var characterUniverse = StarsWarsUniverse()
         
         var uniVC = StarWarsUniverseTableViewController(aModel: characterUniverse)
-        var characterVC = CharacterViewController(aModel: uniVC.model.imperialAtIndex(0))
+        var characterVC = CharacterViewController(aModel: self.lastSelectedcharacter(characterUniverse))
         
         var uNav : UINavigationController = UINavigationController(rootViewController: uniVC)
         var charNav : UINavigationController = UINavigationController(rootViewController: characterVC)
@@ -36,6 +36,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func lastSelectedcharacter(characterUniverse: StarsWarsUniverse)->StarWarsCharacter{
+        
+        var nc : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        var section : Int?
+        var row : Int?
+        
+        var character : StarWarsCharacter
+        
+        if let value = nc.objectForKey("section") as? Int{
+            
+            section = nc.objectForKey("section") as? Int
+            row = nc.objectForKey("row") as? Int
+            
+            if section == characterUniverse.imperialSection {
+                character = characterUniverse.imperialAtIndex(row!)
+            }else{
+                character = characterUniverse.rebelAtIndex(row!)
+            }
+        }else{
+            character = characterUniverse.rebelAtIndex(0)
+        }
+        
+        return character
+    }
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -59,6 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    
 
 }
 
