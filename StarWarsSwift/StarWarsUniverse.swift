@@ -15,8 +15,8 @@ class StarsWarsUniverse{
     var rebelsArray = [StarWarsCharacter]()
     var imperialsArray = [StarWarsCharacter] ()
     
-    let rebelsIndex = 1
-    let imperialIndex = 0
+    let rebelsSection = 1
+    let imperialSection = 0
 
 
     func rebelCount() ->Int{
@@ -55,7 +55,7 @@ class StarsWarsUniverse{
     
     func characterAtIndexPath(indexPath : NSIndexPath) -> StarWarsCharacter{
         
-        if indexPath.section == imperialIndex{
+        if indexPath.section == imperialSection{
             
             return imperialsArray[indexPath.row]
         }

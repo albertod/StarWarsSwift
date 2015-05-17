@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Foundation
 
 class CharacterViewController: UIViewController {
 
@@ -14,41 +16,48 @@ class CharacterViewController: UIViewController {
     @IBOutlet weak var characterImage: UIImageView!
     
     
-    var aModel : StarWarsCharacter!
+    var model : StarWarsCharacter
+    //Player have to be declaraed as a global variable
+    var player = AVAudioPlayer()
     
-    
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, model: StarWarsCharacter) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
-        self.aModel = model
-        self.syncWithModel()
+    init(aModel: StarWarsCharacter){
+        model = aModel
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        
         self.syncWithModel()
         
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
-        navigationItem.leftItemsSupplementBackButton = true
     }
     
     @IBAction func wikiButton(sender: AnyObject) {
     }
  
     @IBAction func playButton(sender: AnyObject) {
+        
+        var path = NSBundle.mainBundle().pathForAuxiliaryExecutable(model.sonido!)
+        var URLFile = NSURL(fileURLWithPath: path!)
+        
+        player = AVAudioPlayer(contentsOfURL: URLFile, error: nil)
+        player.prepareToPlay()
+        player.play()
     }
     
     
     //MARK: auxiliary methods
     func syncWithModel(){
         
-        self.title = self.aModel.alias
-        self.characterImage.image = self.aModel.imagen
+        self.title = self.model.alias
+        self.characterImage.image = self.model.imagen
     }
     
     

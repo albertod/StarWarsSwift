@@ -22,6 +22,7 @@
 		D3D25A231B084D4A0020227E /* R2-D2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3D25A1C1B084D4A0020227E /* R2-D2.jpg */; };
 		D3D25A241B084D4A0020227E /* tarkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3D25A1D1B084D4A0020227E /* tarkin.jpg */; };
 		D3D25A251B084D4A0020227E /* yoda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3D25A1E1B084D4A0020227E /* yoda.jpg */; };
+		D3D25A291B08C4840020227E /* StarWarsUniverseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D25A281B08C4840020227E /* StarWarsUniverseTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		D3D25A1C1B084D4A0020227E /* R2-D2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "R2-D2.jpg"; sourceTree = "<group>"; };
 		D3D25A1D1B084D4A0020227E /* tarkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tarkin.jpg; sourceTree = "<group>"; };
 		D3D25A1E1B084D4A0020227E /* yoda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yoda.jpg; sourceTree = "<group>"; };
+		D3D25A281B08C4840020227E /* StarWarsUniverseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsUniverseTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				D375386C1B08104000C2F629 /* CharacterViewController.swift */,
 				D3D25A0C1B084A000020227E /* CharacterViewController.xib */,
+				D3D25A281B08C4840020227E /* StarWarsUniverseTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D25A291B08C4840020227E /* StarWarsUniverseTableViewController.swift in Sources */,
 				D375386D1B08104100C2F629 /* CharacterViewController.swift in Sources */,
 				D3D25A0F1B084BCA0020227E /* StarWarsUniverse.swift in Sources */,
 				D37538691B07F8DE00C2F629 /* StarWarsCharacter.swift in Sources */,
