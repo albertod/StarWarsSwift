@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Foundation
 
-class StarWarsUniverseTableViewController: UITableViewController {
+protocol StarWarsUniverseViewControllerDelegate{
     
+    func starWarsViewController(_swvc: StarWarsUniverseTableViewController,
+        didSelectCharacter: StarWarsCharacter)
+}
+
+class StarWarsUniverseTableViewController: UITableViewController,UITableViewDelegate,UITableViewDataSource {
     
+    //Mark: Properties
     var model = StarsWarsUniverse()
+    let cellID = "StarWarCell"
+    var delegate : StarWarsUniverseViewControllerDelegate?
+    
     
     init(aModel : StarsWarsUniverse){
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +30,12 @@ class StarWarsUniverseTableViewController: UITableViewController {
 
     required init!(coder aDecoder: NSCoder!) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
 
     //Mark: Table View Data Source
@@ -47,14 +63,14 @@ class StarWarsUniverseTableViewController: UITableViewController {
             character = model.rebelAtIndex(indexPath.row)
         }
         
-        let cellID = "StarWarCell"
-        let cell: AnyObject = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath)
         
-        cell.imageView??.image = character?.imagen
-        cell.textLabel??.text = character?.nombre
-        cell.detailTextLabel??.text = character?.alias
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! UITableViewCell
         
-        return cell as! UITableViewCell
+        cell.imageView?.image = character?.imagen
+        cell.textLabel?.text = character?.nombre
+        cell.detailTextLabel?.text = character?.alias
+        
+        return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -70,7 +86,30 @@ class StarWarsUniverseTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         var character = model.characterAtIndexPath(indexPath)
+        self.delegate?.starWarsViewController(self,
+            didSelectCharacter: character)
+        
+        //Send notification
+        var nc = NSNotificationCenter.defaultCenter()
+        var dict = ["characterKey" : character]
+        var n = NSNotification(name: "characterDidChange", object:self, userInfo: dict)
+        nc.postNotification(n)
         
         
+//        // Guardamos las coordenadas del último personaje
+//        NSArray *coords = @[@(indexPath.section), @(indexPath.row)];
+//        NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+//        [def setObject:coords
+//        forKey:LAST_SELECTED_CHARACTER];
+//        [def synchronize];
+        
+    }
+    
+    func starWarsViewController(_swvc: StarWarsUniverseTableViewController,
+        didSelectCharacter: StarWarsCharacter){
+        // Creamos un CharacterVC
+        var charVC = CharacterViewController(aModel: didSelectCharacter)
+        // Hago un push
+        self.navigationController?.pushViewController(charVC, animated: true)
     }
 }

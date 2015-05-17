@@ -21,7 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var characterUniverse = StarsWarsUniverse()
         
+        var uniVC = StarWarsUniverseTableViewController(aModel: characterUniverse)
+        var characterVC = CharacterViewController(aModel: uniVC.model.imperialAtIndex(0))
         
+        var uNav : UINavigationController = UINavigationController(rootViewController: uniVC)
+        var charNav : UINavigationController = UINavigationController(rootViewController: characterVC)
+        
+        var splitVC : UISplitViewController = UISplitViewController()
+        splitVC.viewControllers = [uNav,charNav]
+        splitVC.delegate = characterVC
+        uniVC.delegate = characterVC
+        
+        window?.rootViewController = splitVC
         
         return true
     }

@@ -13,11 +13,11 @@ import AVFoundation
 
 class StarWarsCharacter {
     
-    var nombre  : String?
-    var alias   : String?
+    var nombre  : String
+    var alias   : String
     var imagen  : UIImage?
-    var sonido  : String?
-    var wikiURL : String?
+    var sonido  : String
+    var wikiURL : String
     
     
     init(nombre : String, alias : String, imagen : UIImage?, sonido : String, wikiURL : String){

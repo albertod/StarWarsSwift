@@ -40,11 +40,11 @@ class StarsWarsUniverse{
         
         //Imperials
         
-        var vader = StarWarsCharacter(nombre: "Anakin Skywalker", alias: "Darth Vader", imagen: UIImage(named:"darthVader.jpg"), sonido: "darthVader.caf", wikiURL: "http://en.wikipedia.org/wiki/Darth_Vader")
+        var vader = StarWarsCharacter(nombre: "Anakin Skywalker", alias: "Darth Vader", imagen: UIImage(named:"darthVader.jpg"), sonido: "vader.caf", wikiURL: "http://en.wikipedia.org/wiki/Darth_Vader")
         
         //Rebels
         var chewbacca = StarWarsCharacter(nombre: "chewbacca", alias: "chew", imagen: UIImage(named:"chewbacca.jpg"), sonido: "chewbacca.caf", wikiURL: "http://en.wikipedia.org/wiki/Chewbacca")
-        var c3po = StarWarsCharacter(nombre: "C-3PO", alias: "C-3PO", imagen: UIImage(named:"darthVader.jpg"), sonido: "c3po.jpg", wikiURL: "http://en.wikipedia.org/wiki/C-3PO")
+        var c3po = StarWarsCharacter(nombre: "C-3PO", alias: "C-3PO", imagen: UIImage(named:"c3po.jpg"), sonido: "c3po.caf", wikiURL: "http://en.wikipedia.org/wiki/C-3PO")
         
         
         self.imperialsArray.append(vader)

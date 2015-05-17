@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 import Foundation
 
-class CharacterViewController: UIViewController {
+class CharacterViewController: UIViewController,UISplitViewControllerDelegate,StarWarsUniverseViewControllerDelegate {
 
     
-    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var characterImage: UIImageView?
     
     
     var model : StarWarsCharacter
@@ -22,7 +22,7 @@ class CharacterViewController: UIViewController {
     
     init(aModel: StarWarsCharacter){
         model = aModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName:"CharacterViewController", bundle: nil)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -40,25 +40,47 @@ class CharacterViewController: UIViewController {
     }
     
     @IBAction func wikiButton(sender: AnyObject) {
+        
+        var wikiVC = WikiViewController(aModel: self.model)
+        self.navigationController?.pushViewController(wikiVC, animated: false)
     }
  
     @IBAction func playButton(sender: AnyObject) {
         
-        var path = NSBundle.mainBundle().pathForAuxiliaryExecutable(model.sonido!)
-        var URLFile = NSURL(fileURLWithPath: path!)
         
+        var path = NSBundle.mainBundle().pathForAuxiliaryExecutable(model.sonido)
+        var URLFile = NSURL(fileURLWithPath: path!)
         player = AVAudioPlayer(contentsOfURL: URLFile, error: nil)
         player.prepareToPlay()
         player.play()
-    }
+    }    
     
+    //MARK: SplitViewDelegate
+    func splitViewController(svc: UISplitViewController, willChangeToDisplayMode displayMode: UISplitViewControllerDisplayMode) {
+        
+        if displayMode == UISplitViewControllerDisplayMode.AllVisible{
+            //the table is hidden
+            //Put the buttom for navigation
+            self.navigationItem.leftBarButtonItem = nil;
+            
+        }else{
+            //We are in landScape, so all it is visible, and hide the buttom
+            self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem();
+        }
+    }
     
     //MARK: auxiliary methods
     func syncWithModel(){
         
         self.title = self.model.alias
-        self.characterImage.image = self.model.imagen
+        self.characterImage?.image = self.model.imagen
     }
     
+    //Mark: protocol
+    func starWarsViewController(_swvc: StarWarsUniverseTableViewController, didSelectCharacter: StarWarsCharacter) {
+        
+        self.model = didSelectCharacter
+        self.syncWithModel()
+    }
     
 }
