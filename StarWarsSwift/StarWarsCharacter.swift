@@ -19,10 +19,15 @@ class StarWarsCharacter {
     var sonido  : AVAudioPlayer?
     var wikiURL : String?
     
+    
+    init(nombre : String, alias : String, imagen : UIImage, sonido : AVAudioPlayer, wikiURL : String){
+        
+        self.nombre = nombre
+        self.alias = alias
+        self.imagen = imagen
+        self.sonido = sonido
+        self.wikiURL = wikiURL
+    }
+    
 }
 
-class StarsWarsUniverse{
-    
-    var rebelsArray = [StarWarsCharacter]()
-    var imperialsArray = [StarWarsCharacter] ()
-}
