@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 
 class StarsWarsUniverse{
     
     var rebelsArray = [StarWarsCharacter]()
     var imperialsArray = [StarWarsCharacter] ()
-
+    
+    let rebelsIndex = 1
+    let imperialIndex = 0
 
 
     func rebelCount() ->Int{
@@ -30,6 +33,37 @@ class StarsWarsUniverse{
     
     func imperialAtIndex(index : Int) -> StarWarsCharacter{
         return self.imperialsArray[index]
+    }
+    
+    
+    init(){
+        
+        //Imperials
+        
+        var vader = StarWarsCharacter(nombre: "Anakin Skywalker", alias: "Darth Vader", imagen: UIImage(named:"darthVader.jpg"), sonido: "darthVader.caf", wikiURL: "http://en.wikipedia.org/wiki/Darth_Vader")
+        
+        //Rebels
+        var chewbacca = StarWarsCharacter(nombre: "chewbacca", alias: "chew", imagen: UIImage(named:"chewbacca.jpg"), sonido: "chewbacca.caf", wikiURL: "http://en.wikipedia.org/wiki/Chewbacca")
+        var c3po = StarWarsCharacter(nombre: "C-3PO", alias: "C-3PO", imagen: UIImage(named:"darthVader.jpg"), sonido: "c3po.jpg", wikiURL: "http://en.wikipedia.org/wiki/C-3PO")
+        
+        
+        self.imperialsArray.append(vader)
+        self.rebelsArray.append(chewbacca)
+        self.rebelsArray.append(c3po)
+        
+    }
+    
+    func characterAtIndexPath(indexPath : NSIndexPath) -> StarWarsCharacter{
+        
+        if indexPath.section == imperialIndex{
+            
+            return imperialsArray[indexPath.row]
+        }
+        
+        else{
+            return rebelsArray[indexPath.row]
+        }
+        
     }
 
 }
