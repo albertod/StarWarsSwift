@@ -1,4 +1,4 @@
 # StarWarsSwift
 StarWars practice from AGBO rewritten in Swift
 
-Update: Currently reviewing the material for autolayout to improve User Interface. 
+* small bug with the play button when the Ipad simulator is in portrait mode, the button is missplaced. 
