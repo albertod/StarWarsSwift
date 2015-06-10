@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterViewController" customModule="StarWarsSwift" customModuleProvider="target">
@@ -15,10 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2H-vR-Fdf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2H-vR-Fdf">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="557"/>
                 </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ew8-6T-vF1">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ew8-6T-vF1">
                     <rect key="frame" x="0.0" y="557" width="600" height="44"/>
                     <items>
                         <barButtonItem title="Wiki" style="plain" id="zlg-dl-BVX">
@@ -36,6 +36,47 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="x2H-vR-Fdf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1NR-7H-YnQ"/>
+                <constraint firstItem="x2H-vR-Fdf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2MS-4W-iBz"/>
+                <constraint firstItem="Ew8-6T-vF1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2dI-G8-zjj"/>
+                <constraint firstAttribute="trailing" secondItem="x2H-vR-Fdf" secondAttribute="trailing" id="3ln-i1-Fps"/>
+                <constraint firstAttribute="bottom" secondItem="Ew8-6T-vF1" secondAttribute="bottom" id="5dl-uy-8cM"/>
+                <constraint firstAttribute="trailing" secondItem="x2H-vR-Fdf" secondAttribute="trailing" id="QBB-hq-qKG"/>
+                <constraint firstItem="Ew8-6T-vF1" firstAttribute="top" secondItem="x2H-vR-Fdf" secondAttribute="bottom" constant="10" id="Qlb-3Y-ISw"/>
+                <constraint firstAttribute="trailing" secondItem="Ew8-6T-vF1" secondAttribute="trailing" id="Tnq-0D-vgj"/>
+                <constraint firstItem="x2H-vR-Fdf" firstAttribute="width" secondItem="Ew8-6T-vF1" secondAttribute="width" id="X2e-8q-Nr2"/>
+                <constraint firstItem="Ew8-6T-vF1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hfE-nN-i6l"/>
+                <constraint firstItem="Ew8-6T-vF1" firstAttribute="top" secondItem="x2H-vR-Fdf" secondAttribute="bottom" id="pkZ-mv-NHW"/>
+                <constraint firstItem="Ew8-6T-vF1" firstAttribute="width" secondItem="x2H-vR-Fdf" secondAttribute="width" id="r1p-h8-xKg"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3ln-i1-Fps"/>
+                    <exclude reference="QBB-hq-qKG"/>
+                    <exclude reference="X2e-8q-Nr2"/>
+                    <exclude reference="2dI-G8-zjj"/>
+                    <exclude reference="Qlb-3Y-ISw"/>
+                    <exclude reference="hfE-nN-i6l"/>
+                    <exclude reference="pkZ-mv-NHW"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular">
+                <mask key="constraints">
+                    <include reference="3ln-i1-Fps"/>
+                    <include reference="2dI-G8-zjj"/>
+                    <include reference="pkZ-mv-NHW"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=regular">
+                <mask key="constraints">
+                    <include reference="QBB-hq-qKG"/>
+                    <exclude reference="X2e-8q-Nr2"/>
+                    <include reference="Qlb-3Y-ISw"/>
+                    <include reference="hfE-nN-i6l"/>
+                    <exclude reference="r1p-h8-xKg"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

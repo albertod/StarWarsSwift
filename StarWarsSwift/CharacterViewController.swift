@@ -34,11 +34,11 @@ class CharacterViewController: UIViewController,UISplitViewControllerDelegate,St
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = self.splitViewController?.displayModeButtonItem()
-        
         self.syncWithModel()
         
     }
     
+
     @IBAction func wikiButton(sender: AnyObject) {
         
         var wikiVC = WikiViewController(aModel: self.model)

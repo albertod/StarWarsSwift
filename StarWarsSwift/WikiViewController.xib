@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WikiViewController" customModule="StarWarsSwift" customModuleProvider="target">
@@ -16,16 +16,50 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JI2-fB-jdD">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JI2-fB-jdD">
                     <rect key="frame" x="0.0" y="0.0" width="649" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-o8-xE5">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-o8-xE5">
                     <rect key="frame" x="314" y="290" width="37" height="37"/>
                     <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="JI2-fB-jdD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9Vb-IA-jot"/>
+                <constraint firstAttribute="centerY" secondItem="hgs-o8-xE5" secondAttribute="centerY" id="X1y-Pf-jvh"/>
+                <constraint firstAttribute="centerY" secondItem="hgs-o8-xE5" secondAttribute="centerY" constant="91.5" id="XCY-hD-bZG">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="JI2-fB-jdD" secondAttribute="bottom" id="exa-4B-oqa"/>
+                <constraint firstAttribute="centerX" secondItem="hgs-o8-xE5" secondAttribute="centerX" id="f9S-IC-yOz"/>
+                <constraint firstItem="JI2-fB-jdD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fyj-Lf-uF7"/>
+                <constraint firstAttribute="trailing" secondItem="JI2-fB-jdD" secondAttribute="trailing" constant="-49" id="gdN-Xx-Asn"/>
+                <constraint firstAttribute="centerX" secondItem="hgs-o8-xE5" secondAttribute="centerX" constant="-132.5" id="jN9-x7-f4p">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="X1y-Pf-jvh"/>
+                    <exclude reference="XCY-hD-bZG"/>
+                    <exclude reference="f9S-IC-yOz"/>
+                    <exclude reference="jN9-x7-f4p"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=regular">
+                <mask key="constraints">
+                    <include reference="X1y-Pf-jvh"/>
+                    <include reference="f9S-IC-yOz"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="XCY-hD-bZG"/>
+                    <include reference="jN9-x7-f4p"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
